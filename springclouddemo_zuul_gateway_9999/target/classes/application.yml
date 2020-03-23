@@ -1,0 +1,29 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: springclouddemo-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7010.com:7010/eureka/,http://eureka7011.com:7011/eureka/
+  instance:
+    instance-id: gateway-9999.com
+    prefer-ip-address: true
+
+info:
+  app.name: springclouddemo-zuul-gateway
+  company.name: www.atguigu.com
+  build.artifactId: springclouddemo_zuul_gateway_9999
+  build.version: 1.0-SNAPSHOT
+
+# 访问路径变成了这样： http://izuul.com:9999/mydept/springcloud/list/2
+zuul:
+  prefix: /dear
+  ignored-services: springclouddemo
+  routes:
+    mydept.serviceId: springclouddemo
+    mydept.path: /hu/**
+

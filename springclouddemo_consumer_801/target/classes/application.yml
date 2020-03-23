@@ -1,0 +1,9 @@
+server:
+  port: 801
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7010.com:7010/eureka/,http://eureka7011.com:7011/eureka/
